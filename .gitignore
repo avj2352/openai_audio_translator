@@ -19,6 +19,7 @@ downloads/
 
 # files
 .env
+**/.env
 Makefile
 run.sh
 
