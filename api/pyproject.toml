@@ -1,0 +1,13 @@
+[project]
+name = "openai-translator-fastapi-service"
+version = "0.1.0"
+description = "rest api service for openai translator"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.115.12",
+    "openai>=1.82.1",
+    "python-dotenv>=1.1.0",
+    "pytube>=15.0.0",
+    "pytubefix>=9.1.1",
+]

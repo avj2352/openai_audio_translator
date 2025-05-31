@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.vscode
+.ideao
+**/__pycache__/
+
+# ignore folders
+.vscode/
+.idea/
+.venv/
+venv/
+downloads/
+
+
+# files
+.env
+Makefile
+run.sh
+
+
