@@ -1,0 +1,17 @@
+// Use @use instead of @import
+@use './styles/variables' as vars;
+
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  small {
+    color: vars.$highlight;
+  }
+}
+
+.header {
+  margin-bottom: 2rem;
+}
