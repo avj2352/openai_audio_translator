@@ -1,24 +1,27 @@
 /**
 * Youtube URL input form
 */
-import { type FC, type JSX, useState } from 'react';
+import { type FC, type JSX, useContext } from 'react';
 import { Button, Group, TextInput, Text } from "@mantine/core";
 import { Flex, Title } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { notifications } from '@mantine/notifications';
 // ..custom
 import GradientCircularProgress from '@/components/GradientCircularProgress';
+import { AppContext } from '@/services/AppContext';
 
 
+const DEFAULT_YOTUBE_URL: string = `https://www.youtube.com/watch?v=di5Qj2koBGc`;
 
 
 const YoutubeVideoInputForm: FC = (): JSX.Element => {
   // ..states
-  const [isLoading, toggleLoading] = useState(false);
+  const { isLoading, fetchTranscribeText } = useContext(AppContext);
   // ..init form
   const form = useForm({
     initialValues: {
       // Default value for the file input
-      url: 'https://www.youtube.com/watch?v=UbtP84vJIJ0',
+      url: DEFAULT_YOTUBE_URL,
       filename: ''
     },
     validate: {
@@ -28,10 +31,21 @@ const YoutubeVideoInputForm: FC = (): JSX.Element => {
   });
 
   // ..evt handlers
+
+  // ..show notifications
+  const showNotification = () => {
+    notifications.show({
+      title: 'Success!',
+      message: 'Transcribe completed',
+      color: 'green',
+    })
+  }
+
   const handleFormSubmit = (values: { url: string, filename: string }) => {
     if (form.validate().hasErrors) return;
     const { url, filename } = values;
-    toggleLoading(true);
+    fetchTranscribeText({ url, filename });
+    showNotification();
   };
 
   // validate youtube url

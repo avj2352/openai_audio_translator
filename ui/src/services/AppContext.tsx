@@ -25,7 +25,7 @@ export const AppContextProvider: FC<{children: ReactNode}> = ({children}):JSX.El
     try {
       const response = await AudioApi.postTranscribeYoutubeUrl(payload);
       console.log('Audio API text response is: ', response);
-      setTranscribedText('');
+      setTranscribedText( response?.data?.text ?? '');
     } catch(err) {
       console.log('Something went wrong: ', err);
     } finally {

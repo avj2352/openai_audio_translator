@@ -27,7 +27,7 @@ def get_audio_file(url: str, filename: str) -> str:
         if audio_stream is None:
             raise YoutubeClientException("ERROR (pytube)! audio_stream is not available")
         logging.debug("->> Downloading audio to downloads folder")
-        audio_file_path = audio_stream.download(output_path="downloads", filename="audio.mp3")
+        audio_file_path = audio_stream.download(output_path="downloads", filename=f"{filename}.mp3")
         if audio_file_path is None or audio_file_path == "":
             raise YoutubeClientException("ERROR (pytube)! error saving audio file path")
         return audio_file_path

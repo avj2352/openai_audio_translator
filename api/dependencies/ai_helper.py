@@ -11,7 +11,8 @@ from exceptions.custom_exception import OpenAIClientException
 
 # read from audio file and transcribe to text
 def transcribe_audio_file(filepath: str) -> str:
-    logging.debug("->>(openai) transcribe text...")
+    logging.info(f"->>(openai) transcribe text to file: {filepath}")
+    logging.debug(f"->>(openai) OPEN_API_KEY: {OPENAI_API_KEY}")
     if filepath == "":
         raise OpenAIClientException("ERROR (openai)! invalid filepath")
     try:

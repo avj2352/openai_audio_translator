@@ -242,3 +242,53 @@ Your React TypeScript project with Vite, Mantine UI, and SCSS is now ready! The 
 - Mantine Hooks for useful React hooks
 
 You can now start building your application using Mantine components and writing styles in SCSS files.
+
+
+
+## Transcribed Text 01
+
+```python
+"""
+2 Corinthians 9.7 
+
+Every man according as he purposed in his heart, so let him give, not grudgingly or of necessity, for God loves a cheerful giver. 
+
+
+
+Ecclesiastes 10.4 
+
+If the spirit of the ruler rise up against you, leave not your place, for yielding pacifies great offenses. With goodwill, do service as to the Lord, and not to men. 
+
+
+
+Ephesians 6.7-8 
+
+And this I pray, that your love may abound yet more and more in knowledge and in all judgment, that you may approve things that are excellent, that you may be sincere and without offense, till the day of Christ. 
+
+
+
+Philippians 1.9-10 
+
+The Lord is on my side, I will not fear. What can man do unto me? 
+
+
+
+Psalm 118.6-9 
+
+The Lord is your keeper, the Lord is your shade upon your right hand. The sun shall not smite you by day, nor the moon by night.
+
+
+
+Psalm 121.5-6 
+
+The fear of the Lord tends to life, and he that has it shall abide satisfied, he shall not be visited with evil. 
+
+
+
+Proverbs 19.23 
+
+When you go, it shall lead you, when you sleep, it shall keep you, and when you awake, it shall talk with you. 
+
+"""
+
+```
