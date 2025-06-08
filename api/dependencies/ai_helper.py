@@ -6,7 +6,8 @@
 """
 import logging
 from openai import OpenAI
-from util.env_config import OPENAI_API_KEY
+from openai.types.responses import Response
+from util.env_config import OPENAI_API_KEY, OPENAI_DEFAULT_MODEL
 from exceptions.custom_exception import OpenAIClientException
 
 # read from audio file and transcribe to text
@@ -25,6 +26,30 @@ def transcribe_audio_file(filepath: str) -> str:
         )
         logging.debug("Generating text...\n")
         return response.text
+    except Exception as err:
+        logging.error(f"an exception occurred (class): {err.__class__}")
+        logging.error(f"{err}")
+        raise OpenAIClientException("ERROR (openai)! an error occcurred when transcribing audio file")
+
+# translate text content from source to destination language
+def translate_text(content: str, src: str, dest: str) -> str:
+    """
+        converts text content from specified source language
+        to specified destination language
+    """
+    user_prompt = f"Translate the following text from {src} to {dest}: {content}"
+    logging.info(f"->>{user_prompt}")
+    try:
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        response: Response = client.responses.create(
+            model=OPENAI_DEFAULT_MODEL,
+            input=user_prompt
+        )
+        logging.debug(f"->> (openai) translate response is: {response.output_text}")
+        if response is None:
+            logging.error("ERROR (openai) an error occurred with response: invalid response")
+            raise ValueError("Invalid response")
+        return response.output_text
     except Exception as err:
         logging.error(f"an exception occurred (class): {err.__class__}")
         logging.error(f"{err}")

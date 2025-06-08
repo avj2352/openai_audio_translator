@@ -40,19 +40,33 @@ This project consists of:
 
 The following are the pre-requisite to run the project
 
-#### 1. OpenAI API Key
-You need to setup a `.env` file with the following key
+#### 1. Server Environment Variables
+You need to setup a `.env` file with the following key in the folder `api`
 
 > NOTE: OpenAI requires you have credits to use audio-text transcribe and TTS conversion features
 
 ```bash
-# create .env at root folder
+# create .env at root folder of api
 
 # your openai api key
 OPENAI_API_KEY=<your-openai-api-key>
+OPENAI_DEFAULT_MODEL="gpt-4.1"
 ```
 
-#### 2. Create a `downloads` folder
+#### 2. UI Environment Variables 
+
+You need to setup a `.env` file with the following key in the folder `api`
+
+> NOTE: OpenAI requires you have credits to use audio-text transcribe and TTS conversion features
+
+```bash
+# create .env at root folder ui
+
+VITE_APP_NAME=0.1.3
+```
+
+
+#### 3. Create a `downloads` folder
 
 All the audio mp3 files and transcribed text get stored in the downloads folder
 
@@ -245,6 +259,17 @@ Your React TypeScript project with Vite, Mantine UI, and SCSS is now ready! The 
 
 You can now start building your application using Mantine components and writing styles in SCSS files.
 
+
+
+
+# TESTING
+
+The following features have been developed & tested...
+
+- Transcribe: Generate text from youtube url ✅
+- Chunk up audio.mp3 into intervals of 8 mins
+- Translate audio text to hindi using OpenAI ...
+- Generate audio file from translated text ...
 
 
 ## Transcribed Text 01

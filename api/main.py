@@ -7,6 +7,7 @@ from scalar_fastapi import get_scalar_api_reference
 # ..custom
 from util.about import config, description
 from resources.transcribe import transcribe_router
+from resources.translate import translate_router
 
 # Create the APP
 app = FastAPI(
@@ -76,4 +77,5 @@ async def validation_exception_handler(_: Request, exc: RequestValidationError):
     )
 
 app.include_router(router=transcribe_router, prefix='/transcribe', tags=["transcribe"])
+app.include_router(router=translate_router, prefix='/translate', tags=["translate"])
 
