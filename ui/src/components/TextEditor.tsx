@@ -1,5 +1,6 @@
 import { useContext, type FC, type JSX, useEffect, useState } from 'react';
 import { useEditor } from '@tiptap/react';
+import { Text, Stack } from '@mantine/core';
 import StarterKit from '@tiptap/starter-kit';
 import { RichTextEditor } from '@mantine/tiptap';
 import { AppContext } from '@/services/AppContext';
@@ -30,7 +31,11 @@ const TextEditor: FC = ():JSX.Element => {
     }
   },[appContext.transcribedText]);
 
-  return (
+  return (<Stack>
+    <Text c="dimmed">
+      AI is prone to make mistakes. Please review transcribed text below &
+      modify accordingly*
+      </Text>
     <RichTextEditor editor={editor}>
       <RichTextEditor.Toolbar sticky stickyOffset="var(--docs-header-height)">
         <RichTextEditor.ControlsGroup>
@@ -43,7 +48,7 @@ const TextEditor: FC = ():JSX.Element => {
 
       <RichTextEditor.Content />
     </RichTextEditor>
-  );
+  </Stack>);
 };
 
 

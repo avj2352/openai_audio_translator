@@ -6,6 +6,8 @@ Python POC example to leverage AI (OpenAI) to:
 - Translate english.txt file to hindi.txt file
 - Generate Audio MP3 file from translated hindi.txt file
 
+![Demo screenshot](./design/openai_demo.jpg)
+
 ![High level architecture](./design/high_level_architecture.jpg)
 
 This project consists of: 
