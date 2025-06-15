@@ -16,7 +16,7 @@ const EnglishEditorScreen: FC = (): JSX.Element => {
     const payload: ITranslateTextPayload = {
       content,
       from_language: 'english',
-      to_language: 'hindi'
+      to_language: 'tamil'
     };
     fetchTranslatedText(payload);
   };

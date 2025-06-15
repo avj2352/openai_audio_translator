@@ -17,6 +17,7 @@ This project consists of:
 - **ui**: React, Typescript based app for UI interface
 
 ## Important Links
+- [Convert text to Speech - OpenAI Audio API](https://platform.openai.com/docs/guides/text-to-speech)
 - [OpenAI API Dashboard page](https://platform.openai.com)
 - [UV homepage](https://docs.astral.sh/uv/)
 - [OpenAI speech to text docs](https://platform.openai.com/docs/guides/speech-to-text)
@@ -318,4 +319,27 @@ When you go, it shall lead you, when you sleep, it shall keep you, and when you 
 
 """
 
+```
+
+## Generate spoken audio from input Text
+
+Below is a python code snippet to convert text to audio file
+
+```python
+"""
+  Convert speech to audio file
+"""
+from pathlib import Path
+from openai import OpenAI
+
+client = OpenAI()
+speech_file_path = Path(__file__).parent / "speech.mp3"
+
+with client.audio.speech.with_streaming_response.create(
+    model="gpt-4o-mini-tts",
+    voice="coral",
+    input="Today is a wonderful day to build something people love!",
+    instructions="Speak in a cheerful and positive tone.",
+) as response:
+    response.stream_to_file(speech_file_path)
 ```
