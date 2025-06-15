@@ -3,9 +3,10 @@ import { Container, Title, Text, Stack } from '@mantine/core';
 import { APP_VERSION } from "@/util/envConfig";
 import '@/App.scss';
 // import GradientCircularProgress from '@/components/GradientCircularProgress';
-import YoutubeVideoInputForm from '@/components/YoutubeVideoInputForm';
-import TextEditor from './components/TextEditor';
-import OpenAISVG from './components/OpenAISVG';
+import YoutubeVideoInputForm from '@/views/YoutubeVideoInputForm';
+import OpenAISVG from '@/components/OpenAISVG';
+import EnglishEditorScreen from '@/views/EnglishEditorScreen';
+import HindiEditorScreen from '@/views/HindiEditorScreen';
 
 function App() {
 
@@ -21,7 +22,10 @@ function App() {
           </Stack>
           <Text c="dimmed" style={{ marginBottom: 20 }}>OpenAI agent to translate youtube / english audio files to hindi audio mp3</Text>
           <YoutubeVideoInputForm />
-          <TextEditor />
+          {/* english translator editor */}
+          <EnglishEditorScreen/>
+          {/* hindi translate editor */}
+          <HindiEditorScreen/>
         </div>
       </Stack>
     </Container>

@@ -23,17 +23,17 @@ class GlobalConfig(BaseSettings):
     """
     tags_metadata: List[Any]  = [        
         {
-            "name": "translate",
-            "description": "Consists of API collection to authenticate & authorize users",
-        },
-        {
             "name": "transcribe",
             "description": "Consists of API collection to create, update, read & delete assets",
         },
         {
-            "name": "generate",
-            "description": "Consists of API collection to create, update, read & delete products",
+            "name": "prompt",
+            "description": "Consists of API collection related to AI LLM prompt & assist"
         },
+        {
+            "name": "generate",
+            "description": "Consists of API collection related to generating audio video media assets",
+        }
     ]
     title: str = "OpenAI Audio Translator"
     version: str = API_VERSION    

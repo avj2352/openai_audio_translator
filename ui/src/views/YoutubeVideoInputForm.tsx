@@ -32,20 +32,11 @@ const YoutubeVideoInputForm: FC = (): JSX.Element => {
 
   // ..evt handlers
 
-  // ..show notifications
-  const showNotification = () => {
-    notifications.show({
-      title: 'Success!',
-      message: 'Transcribe completed',
-      color: 'green',
-    })
-  }
-
+ 
   const handleFormSubmit = (values: { url: string, filename: string }) => {
     if (form.validate().hasErrors) return;
     const { url, filename } = values;
     fetchTranscribeText({ url, filename });
-    showNotification();
   };
 
   // validate youtube url

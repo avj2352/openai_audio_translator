@@ -53,4 +53,28 @@ def translate_text(content: str, src: str, dest: str) -> str:
     except Exception as err:
         logging.error(f"an exception occurred (class): {err.__class__}")
         logging.error(f"{err}")
-        raise OpenAIClientException("ERROR (openai)! an error occcurred when transcribing audio file")
+        raise OpenAIClientException("ERROR (openai)! an error occcurred when translating the given content")
+
+# translate text content from source to destination language
+def fetch_ai_assist(content: str) -> str:
+    """
+        API to fetch openai LLM chat assist
+    """
+    user_prompt = f"{content}"
+    logging.info(f"->>{user_prompt}")
+    try:
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        response: Response = client.responses.create(
+            model=OPENAI_DEFAULT_MODEL,
+            input=user_prompt
+        )
+        logging.debug(f"->> (openai) ai_assist response is: {response.output_text}")
+        if response is None:
+            logging.error("ERROR (openai) an error occurred with response: invalid response")
+            raise ValueError("Invalid response")
+        return response.output_text
+    except Exception as err:
+        logging.error(f"an exception occurred (class): {err.__class__}")
+        logging.error(f"{err}")
+        raise OpenAIClientException("ERROR (openai)! an error occcurred when fetching ai_assist response")
+

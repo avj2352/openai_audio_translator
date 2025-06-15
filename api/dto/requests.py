@@ -31,3 +31,6 @@ class TranslateTextToTextRequest(BaseModel):
             raise ValueError('value must be of type - english | hindi | tamil')
         return v.title()
 
+
+class UserPromptAssistRequest(BaseModel):
+    user_prompt: str = Field(..., description="enter user prompt message")
